@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, Pressable } from 'react-native';
+import { LogOut, Tresh } from '../../assets/SvgIcons';
 
 export function ButtonSignup({ onPress }) {
   return (
@@ -12,7 +13,7 @@ export function ButtonSignup({ onPress }) {
 export function ButtonLogin({ onPress }) {
   return (
     <Pressable style={styles.button} onPress={onPress}>
-      <Text style={styles.text}>Log In</Text>
+      {<Text style={styles.text}>Log In</Text>}
     </Pressable>
   );
 }
@@ -44,7 +45,15 @@ export function ButtonMoveToSignup({ onPress }) {
 export function ButtonDeletePost({ onPress }) {
   return (
     <Pressable onPress={onPress}>
-      <Text style={styles.textMoveTo}>Delete</Text>
+      {Tresh}
+    </Pressable>
+  );
+}
+
+export function ButtonLogOut({ onPress}) {
+  return (
+    <Pressable onPress={onPress}>
+     {LogOut}
     </Pressable>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import { ButtonPublish, ButtonDeletePost } from '../Components/Button';
 import { useNavigation } from '@react-navigation/native';
+import { LocationIcon } from '../../assets/SvgIcons';
 
 export default function CreatePostsScreen() {
   const [name, setName] = useState('');
@@ -18,12 +19,16 @@ export default function CreatePostsScreen() {
         value={name}
         style={styles.input}
       />
-      <TextInput
-        placeholder="Location"
-        onChangeText={(newLocation) => setLocation(newLocation)}
-        value={location}
-        style={styles.input}
-      />
+      <View style={styles.location}>
+        {LocationIcon}
+        <TextInput
+          placeholder="Location"
+          onChangeText={(newLocation) => setLocation(newLocation)}
+          value={location}
+          style={styles.inputLocation}
+        />
+      </View>
+
       <ButtonPublish onPress={() => navigation.navigate('PostsScreen')} />
       <View style={styles.delete}>
         <ButtonDeletePost onPress={() => navigation.navigate('PostsScreen')} />
@@ -36,10 +41,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    borderTopColor: 'rgba(0, 0, 0, 0.3)',   
+    borderTopColor: 'rgba(0, 0, 0, 0.3)',
     borderTopWidth: 1,
     paddingLeft: 16,
-    paddingRight: 16,   
+    paddingRight: 16,
   },
   postPhoto: {
     width: '100%',
@@ -50,7 +55,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 32,
     marginBottom: 8,
-    alignItems: 'center',    
+    alignItems: 'center',
   },
   input: {
     height: 50,
@@ -60,8 +65,8 @@ const styles = StyleSheet.create({
     // fontFamily: 'Roboto',
     fontSize: 16,
     lineHeight: 19,
-    color: '#212121',   
-    borderBottomColor: '#E8E8E8',    
+    color: '#212121',
+    borderBottomColor: '#E8E8E8',
   },
   text: {
     fontSize: 16,
@@ -69,8 +74,26 @@ const styles = StyleSheet.create({
     color: '#BDBDBD',
     marginBottom: 24,
   },
-  delete: {   
+  delete: {
     alignItems: 'center',
     marginTop: 32,
+  },
+  location: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    marginBottom: 24,
+    borderBottomColor: '#E8E8E8',
+  },
+  inputLocation: {
+    height: 50,
+    // padding: 16,
+    // borderBottomWidth: 1,
+    // marginBottom: 24,
+    // fontFamily: 'Roboto',
+    fontSize: 16,
+    lineHeight: 19,
+    color: '#212121',
+    // borderBottomColor: '#E8E8E8',
   },
 });

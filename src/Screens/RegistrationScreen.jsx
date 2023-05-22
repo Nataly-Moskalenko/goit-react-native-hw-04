@@ -89,9 +89,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
+    paddingLeft: 16,
+    paddingRight: 16,
   },
   image: {
-    width: 375,
+    width: '100%',
     height: 812,
     flex: 1,
     justifyContent: 'center',
